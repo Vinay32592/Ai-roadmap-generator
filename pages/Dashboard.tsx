@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { GoogleGenAI, Modality } from "@google/genai";
-import { generateRoadmapSteps, generateQuizForStep } from '../geminiService';
+import { generateRoadmapSteps, generateQuizForStep, generateFinalQuizForRoadmap } from '../geminiService';
 import { Roadmap, Step, QuizQuestion } from '../types';
 
 // Audio Utilities for Live API (Manually implemented)
@@ -781,9 +781,9 @@ const Dashboard: React.FC<DashboardProps> = ({ roadmaps, setRoadmaps }) => {
                               className="px-8 py-4 bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-700 hover:to-yellow-600 text-black rounded-xl font-pirate font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 animate-pulse"
                             >
                               <span className="text-xl">
-                                {currentQuestionIndex < quizData[currentQuizStep].length - 1 ? '⏭️' : '🏆'}
+                                {currentQuestionIndex < finalQuizData.length - 1 ? '⏭️' : '🏆'}
                               </span>
-                              {currentQuestionIndex < quizData[currentQuizStep].length - 1 ? 'Next Question' : 'Complete Quest!'}
+                              {currentQuestionIndex < finalQuizData.length - 1 ? 'Next Question' : 'Complete Quest!'}
                             </button>
                           )}
                         </div>

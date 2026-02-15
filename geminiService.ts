@@ -514,3 +514,51 @@ const generateFallbackFinalQuiz = (steps: Step[], goal: string): QuizQuestion[] 
 
   return questions;
 };
+export const generateQuizForStep = async (stepTitle: string, stepDescription: string): Promise<QuizQuestion[]> => {
+  try {
+    const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY || '';
+    if (!apiKey || apiKey === 'PLACEHOLDER_API_KEY') {
+      return generateFallbackQuiz(stepTitle);
+    }
+
+    try {
+      const response = await tryGenerateContent(
+        ["gemini-1.5-pro", "gemini-1.5-flash"],
+        `Create 3 quiz questions for this learning step:
+         Title: "${stepTitle}"
+         Description: "${stepDescription}"
+         
+         Questions should test understanding of the concepts.`,
+        {
+          thinkingConfig: { thinkingBudget: 0 },
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                question: { type: Type.STRING },
+                options: {
+                  type: Type.ARRAY,
+                  items: { type: Type.STRING }
+                },
+                correctAnswer: { type: Type.INTEGER },
+                hint: { type: Type.STRING },
+                explanation: { type: Type.STRING },
+              },
+              required: ["question", "options", "correctAnswer", "hint", "explanation"],
+            },
+          },
+        }
+      );
+
+      return JSON.parse(response.text || "[]");
+    } catch (aiError) {
+      console.log('Quiz generation failed, using fallback:', aiError);
+      return generateFallbackQuiz(stepTitle);
+    }
+  } catch (error) {
+    console.error("Error generating quiz:", error);
+    return generateFallbackQuiz(stepTitle);
+  }
+};
