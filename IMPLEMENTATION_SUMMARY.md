@@ -5,12 +5,14 @@ You now have a **fully functional full-stack application** with Node.js, Express
 ### 🎯 What Was Set Up
 
 #### 1. **Backend Server (Express.js)**
+
 - ✅ Express.js server on port 5000
 - ✅ TypeScript support with ts-node and nodemon
 - ✅ CORS enabled for frontend communication
 - ✅ JSON body parsing middleware
 
 #### 2. **Database Integration (MongoDB + Mongoose)**
+
 - ✅ Mongoose ODM for MongoDB
 - ✅ Connection pooling and error handling
 - ✅ Three data models:
@@ -19,6 +21,7 @@ You now have a **fully functional full-stack application** with Node.js, Express
   - **Step** - Individual learning steps with progress tracking
 
 #### 3. **API Routes**
+
 - ✅ **Users Endpoints** (CRUD operations)
   - GET /api/users - List all users
   - GET /api/users/:id - Get single user
@@ -37,17 +40,20 @@ You now have a **fully functional full-stack application** with Node.js, Express
   - GET /api/health - Server status
 
 #### 4. **Error Handling**
+
 - ✅ Try-catch blocks in all routes
 - ✅ Proper HTTP status codes
 - ✅ Duplicate email validation
 - ✅ Middleware error handler
 
 #### 5. **TypeScript Configuration**
+
 - ✅ Fixed TypeScript compilation errors
 - ✅ Added esModuleInterop for module imports
 - ✅ Full type safety across backend
 
 #### 6. **Frontend Integration**
+
 - ✅ Fixed missing function exports in geminiService.ts
 - ✅ Added generateQuizForStep function
 - ✅ Added generateFinalQuizForRoadmap function
@@ -74,18 +80,21 @@ Development:
 ### 🚀 How to Run
 
 **Option 1: Frontend Only**
+
 ```bash
 npm run dev
 → http://localhost:5173
 ```
 
 **Option 2: Backend Only**
+
 ```bash
 npm run server:dev
 → http://localhost:5000
 ```
 
 **Option 3: Full Stack (Recommended)**
+
 ```bash
 npm run dev:all
 → Frontend: http://localhost:5173
@@ -95,10 +104,12 @@ npm run dev:all
 ### 🗄️ Database Setup Required
 
 Before running:
+
 1. **Install MongoDB locally** OR
 2. **Create MongoDB Atlas account** (free cloud option)
 
 Set in `.env.local`:
+
 ```env
 MONGODB_URI=mongodb://localhost:27017/captain-quest
 # OR for Atlas:
@@ -141,6 +152,7 @@ MONGODB_URI=mongodb://localhost:27017/captain-quest
 ### 📚 Documentation
 
 Two comprehensive guides created:
+
 1. **SETUP.md** - Complete setup & deployment guide
 2. **BACKEND_GUIDE.md** - Detailed backend API documentation
 
@@ -155,15 +167,17 @@ Two comprehensive guides created:
    - Add to `.env.local`: `GEMINI_API_KEY=your_key`
 
 3. **Run the Application**
+
    ```bash
    npm run dev:all
    ```
 
 4. **Test Backend**
+
    ```bash
    # Health check
    curl http://localhost:5000/api/health
-   
+
    # Create user
    curl -X POST http://localhost:5000/api/users \
      -H "Content-Type: application/json" \
