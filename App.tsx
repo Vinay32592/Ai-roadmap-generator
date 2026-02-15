@@ -126,7 +126,6 @@ const App: React.FC = () => {
         {renderPage()}
       </main>
       <footer className="p-4 bg-black/60 border-t border-yellow-900/20 text-center text-xs text-yellow-900 font-medieval tracking-widest uppercase backdrop-blur-sm">
-        &copy; {new Date().getFullYear()} The Black Pearl Digital Academy • Persisted in Browser Log
       </footer>
     </Layout>
   );

@@ -702,14 +702,14 @@ const Dashboard: React.FC<DashboardProps> = ({ roadmaps, setRoadmaps }) => {
                                 disabled={selectedAnswer !== null}
                                 className={`w-full text-left p-6 rounded-xl border-3 transition-all duration-300 font-medieval text-lg relative overflow-hidden group
                                   ${selectedAnswer === null
-                                    ? 'border-yellow-900/30 hover:border-yellow-600 hover:bg-yellow-100 hover:scale-105 hover:shadow-lg bg-white'
+                                    ? 'border-yellow-900/30 hover:border-yellow-600 hover:bg-yellow-100 hover:scale-105 hover:shadow-lg bg-white text-black'
                                     : selectedAnswer === optionIdx
                                       ? optionIdx === finalQuizData[currentQuestionIndex].correctAnswer
                                         ? 'border-green-500 bg-gradient-to-r from-green-100 to-green-50 text-green-800 shadow-lg scale-105 animate-pulse'
                                         : 'border-red-500 bg-gradient-to-r from-red-100 to-red-50 text-red-800 shadow-lg'
                                       : optionIdx === finalQuizData[currentQuestionIndex].correctAnswer
                                         ? 'border-green-500 bg-gradient-to-r from-green-100 to-green-50 text-green-800 shadow-lg scale-105'
-                                        : 'border-gray-300 bg-gray-50 opacity-60'
+                                        : 'border-gray-300 bg-gray-50 opacity-60 text-black'
                                   }`}
                               >
                                 <div className="flex items-center gap-4">
