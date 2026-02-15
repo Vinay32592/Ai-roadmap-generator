@@ -1,9 +1,9 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
-import connectDB from './config/database';
-import roadmapRoutes from './routes/roadmaps';
-import userRoutes from './routes/users';
+import connectDB from './config/database.js';
+import roadmapRoutes from './routes/roadmaps.js';
+import userRoutes from './routes/users.js';
 
 dotenv.config();
 

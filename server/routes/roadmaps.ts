@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { Roadmap } from '../models/schemas';
+import { Roadmap } from '../models/schemas.js';
 
 const router = Router();
 
